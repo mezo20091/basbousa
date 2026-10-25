@@ -1,7 +1,7 @@
 /* =========================================
    ROMANTIC INTERACTIVE LOGIC FOR BASBOOSA 💕
    With Bahaa Sultan - Ana Mn Gherak (MP3)
-   & Step-by-Step Journey Progression
+   & 10 Sequential Journey Steps
 ========================================= */
 
 // --- 1. Background Music: Bahaa Sultan - Ana Mn Gherak ---
@@ -320,9 +320,9 @@ passwordInput.addEventListener('keypress', (e) => {
 });
 
 
-// --- 6. Stage 3: Step-by-Step Memories Journey Logic ---
+// --- 6. Stage 3: Step-by-Step Memories Journey Logic (10 Steps) ---
 let currentStep = 1;
-const totalSteps = 8;
+const totalSteps = 10;
 
 const stepPoems = [
   "أحبكِ حباً لو يفضّ يسيره على الخلق، مات الخلق من شدّة الحبِّ",
@@ -332,6 +332,8 @@ const stepPoems = [
   "كلُّ الوردِ يذبلُ يا أميرتي.. إلا ورداً لمستهُ يداكِ فخلُد 🌹",
   "بجواركِ تمضي الدقائقُ كأنها جنة.. وبكِ تُبنى كلُّ أماني الغد 🎬",
   "رسمتُ حرفكِ فوق ثوبي معلناً.. أن الهوى في مهجتي عنوانُكِ ✍️",
+  "معكِ كلُّ الطرقاتِ أمانٌ.. وكلُّ الأوقاتِ ربيعٌ لا ينتهي 🌸",
+  "أنتِ سندي وأولُ من آمنَ بي.. ونجاحي لا يكتمل نوره إلا بابتسامتكِ 🌟",
   "وكلُّ يومٍ معكِ هو عيدٌ جديد.. وقربكِ هو نعمةُ العمرِ المديد 💖",
   "يا سكرَ الأيامِ والكونِ الفسيح.. يا من ببسمتها يطيبُ ويستريحُ 💍"
 ];
@@ -339,13 +341,11 @@ const stepPoems = [
 function updateStepUI(stepNum) {
   currentStep = stepNum;
 
-  // Update text counter
   const stepCounterText = document.getElementById('stepCounterText');
   if (stepCounterText) {
     stepCounterText.textContent = `المرحلة ${stepNum} من ${totalSteps}`;
   }
 
-  // Update top poem
   const journeyMiniPoem = document.getElementById('journeyMiniPoem');
   if (journeyMiniPoem && stepPoems[stepNum]) {
     journeyMiniPoem.style.opacity = 0;
@@ -355,19 +355,18 @@ function updateStepUI(stepNum) {
     }, 200);
   }
 
-  // Update dots
   const dots = document.querySelectorAll('.p-dot');
   dots.forEach((dot, idx) => {
     const dotStep = idx + 1;
     dot.classList.remove('active', 'completed');
     if (dotStep === stepNum) {
       dot.classList.add('active');
-      dot.textContent = (dotStep === 8) ? '💍' : '💖';
+      dot.textContent = (dotStep === 10) ? '💍' : '💖';
     } else if (dotStep < stepNum) {
       dot.classList.add('completed');
       dot.textContent = '💕';
     } else {
-      dot.textContent = (dotStep === 8) ? '💍' : '🤍';
+      dot.textContent = (dotStep === 10) ? '💍' : '🤍';
     }
   });
 }
@@ -379,7 +378,7 @@ function revealStep(stepNum) {
     const rect = stepEl.getBoundingClientRect();
     burstHeartsAt(rect.left + rect.width / 2, rect.top + 100, 25);
 
-    if (window.confetti && stepNum === 8) {
+    if (window.confetti && stepNum === 10) {
       confetti({
         particleCount: 100,
         spread: 80,
@@ -396,18 +395,15 @@ function goToStep(targetStep) {
   playSong();
   if (targetStep < 1 || targetStep > totalSteps) return;
 
-  // Hide all steps
   document.querySelectorAll('.memory-step').forEach(step => {
     step.classList.remove('active');
   });
 
-  // Activate target step
   const nextStepEl = document.getElementById(`step-${targetStep}`);
   if (nextStepEl) {
     nextStepEl.classList.add('active');
     updateStepUI(targetStep);
     
-    // Smooth scroll to card
     window.scrollTo({
       top: nextStepEl.offsetTop - 80,
       behavior: 'smooth'
@@ -437,7 +433,7 @@ function closeLightbox(e) {
 }
 
 
-// --- 8. Step 8: Proposal Celebration Logic ---
+// --- 8. Step 10: Proposal Celebration Logic ---
 function celebrateLove(btn) {
   const celebrationMsg = document.getElementById('celebrationMsg');
 

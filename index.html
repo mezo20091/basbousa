@@ -119,10 +119,10 @@
     <header class="journey-header text-center">
       <div class="step-counter-badge">
         <i class="fa-solid fa-heart"></i>
-        <span id="stepCounterText">المرحلة 1 من 8</span>
+        <span id="stepCounterText">المرحلة 1 من 10</span>
       </div>
       
-      <!-- Progress Hearts Bar -->
+      <!-- Progress Hearts Bar (10 Steps) -->
       <div class="hearts-progress-bar" id="heartsProgressBar">
         <span class="p-dot active" data-step="1">💖</span>
         <span class="p-dot" data-step="2">🤍</span>
@@ -131,7 +131,9 @@
         <span class="p-dot" data-step="5">🤍</span>
         <span class="p-dot" data-step="6">🤍</span>
         <span class="p-dot" data-step="7">🤍</span>
-        <span class="p-dot" data-step="8">💍</span>
+        <span class="p-dot" data-step="8">🤍</span>
+        <span class="p-dot" data-step="9">🤍</span>
+        <span class="p-dot" data-step="10">💍</span>
       </div>
 
       <p class="journey-mini-poem" id="journeyMiniPoem">
@@ -145,14 +147,12 @@
       <!-- STEP 1 -->
       <div class="memory-step active" id="step-1" data-step="1">
         <div class="step-card">
-          <!-- Sealed Cover -->
           <div class="card-cover" onclick="revealStep(1)">
             <div class="cover-heart"><i class="fa-solid fa-heart"></i></div>
             <span class="card-number">المرحلة الأولى</span>
             <h3 class="cover-title">أول لقاء في الحقيقة ✨</h3>
             <p class="cover-tap-prompt">اضغطي هنا لاكتشاف الذكرى 👆</p>
           </div>
-          <!-- Revealed Content -->
           <div class="card-revealed">
             <div class="photo-wrapper" onclick="openLightbox('images/1.jpg', 'أول وأجمل يوم في حياتي.. اليوم الي شوفتك فيه في الحقيقة ❤️')">
               <img src="images/1.jpg" alt="الذكرى الأولى" loading="lazy">
@@ -165,7 +165,6 @@
                 "وكان اللقاءُ أماناً لقلبي.. كأنَّ الزمانَ ابتدأ من هنا 🌸"
               </div>
             </div>
-            <!-- Next Step Action -->
             <div class="step-nav-box">
               <button class="next-step-btn" onclick="goToStep(2)">
                 <span>نروح للذكرى التانية يا روحي؟ ✨</span>
@@ -179,14 +178,12 @@
       <!-- STEP 2 -->
       <div class="memory-step" id="step-2" data-step="2">
         <div class="step-card">
-          <!-- Sealed Cover -->
           <div class="card-cover" onclick="revealStep(2)">
             <div class="cover-heart"><i class="fa-solid fa-water"></i></div>
             <span class="card-number">المرحلة الثانية</span>
             <h3 class="cover-title">يوم البحر ودفء إيدك 🌊</h3>
             <p class="cover-tap-prompt">اضغطي هنا لاكتشاف الذكرى 👆</p>
           </div>
-          <!-- Revealed Content -->
           <div class="card-revealed">
             <div class="photo-wrapper" onclick="openLightbox('images/2.jpg', 'تالت وأجمل يوم في حياتي على البحر 🌊')">
               <img src="images/2.jpg" alt="الذكرى الثانية" loading="lazy">
@@ -216,14 +213,12 @@
       <!-- STEP 3 -->
       <div class="memory-step" id="step-3" data-step="3">
         <div class="step-card">
-          <!-- Sealed Cover -->
           <div class="card-cover" onclick="revealStep(3)">
             <div class="cover-heart"><i class="fa-solid fa-moon"></i></div>
             <span class="card-number">المرحلة الثالثة</span>
             <h3 class="cover-title">يوم الخمار والجمال 🌸</h3>
             <p class="cover-tap-prompt">اضغطي هنا لاكتشاف الذكرى 👆</p>
           </div>
-          <!-- Revealed Content -->
           <div class="card-revealed">
             <div class="photo-wrapper" onclick="openLightbox('images/3.jpg', 'يوم ما لبستي الخمار كان شكلك تحفة وقمر 🌸')">
               <img src="images/3.jpg" alt="الذكرى الثالثة" loading="lazy">
@@ -253,14 +248,12 @@
       <!-- STEP 4 -->
       <div class="memory-step" id="step-4" data-step="4">
         <div class="step-card">
-          <!-- Sealed Cover -->
           <div class="card-cover" onclick="revealStep(4)">
             <div class="cover-heart"><i class="fa-solid fa-fan"></i></div>
             <span class="card-number">المرحلة الرابعة</span>
             <h3 class="cover-title">الوردة التي أزهرت في كتابك 🌹</h3>
             <p class="cover-tap-prompt">اضغطي هنا لاكتشاف الذكرى 👆</p>
           </div>
-          <!-- Revealed Content -->
           <div class="card-revealed">
             <div class="photo-wrapper" onclick="openLightbox('images/4.jpg', 'الوردة الي اتقطعت واتحطت في كتاب وبقت لوحة بسبب إيدكِ الحلوة 🌹')">
               <img src="images/4.jpg" alt="الذكرى الرابعة" loading="lazy">
@@ -287,17 +280,15 @@
         </div>
       </div>
 
-      <!-- STEP 5 -->
+      <!-- STEP 5 (Cinema - Updated Image) -->
       <div class="memory-step" id="step-5" data-step="5">
         <div class="step-card">
-          <!-- Sealed Cover -->
           <div class="card-cover" onclick="revealStep(5)">
             <div class="cover-heart"><i class="fa-solid fa-film"></i></div>
             <span class="card-number">المرحلة الخامسة</span>
             <h3 class="cover-title">السينما وبناء أحلامنا 🎬</h3>
             <p class="cover-tap-prompt">اضغطي هنا لاكتشاف الذكرى 👆</p>
           </div>
-          <!-- Revealed Content -->
           <div class="card-revealed">
             <div class="photo-wrapper" onclick="openLightbox('images/5.jpg', 'السينما لما كنا قاعدين جمب بعض كنت بنبي احلامنا 🎬')">
               <img src="images/5.jpg" alt="الذكرى الخامسة" loading="lazy">
@@ -324,17 +315,15 @@
         </div>
       </div>
 
-      <!-- STEP 6 -->
+      <!-- STEP 6 (Letter on suit) -->
       <div class="memory-step" id="step-6" data-step="6">
         <div class="step-card">
-          <!-- Sealed Cover -->
           <div class="card-cover" onclick="revealStep(6)">
             <div class="cover-heart"><i class="fa-solid fa-pen-nib"></i></div>
             <span class="card-number">المرحلة السادسة</span>
             <h3 class="cover-title">حرفك على بدلتي وقلبي ✍️</h3>
             <p class="cover-tap-prompt">اضغطي هنا لاكتشاف الذكرى 👆</p>
           </div>
-          <!-- Revealed Content -->
           <div class="card-revealed">
             <div class="photo-wrapper" onclick="openLightbox('images/6.jpg', 'لما رسمت حرفك على البدلة ✨')">
               <img src="images/6.jpg" alt="الذكرى السادسة" loading="lazy">
@@ -353,7 +342,7 @@
                 <span>السابقة</span>
               </button>
               <button class="next-step-btn" onclick="goToStep(7)">
-                <span>الذكرى السابعة والأجمل 💖</span>
+                <span>الذكرى السابعة وأعظم خروجة 💖</span>
                 <i class="fa-solid fa-arrow-left"></i>
               </button>
             </div>
@@ -361,27 +350,25 @@
         </div>
       </div>
 
-      <!-- STEP 7 -->
+      <!-- STEP 7 (NEW: من اعظم الخروجات برضو) -->
       <div class="memory-step" id="step-7" data-step="7">
         <div class="step-card">
-          <!-- Sealed Cover -->
           <div class="card-cover" onclick="revealStep(7)">
-            <div class="cover-heart"><i class="fa-solid fa-crown"></i></div>
+            <div class="cover-heart"><i class="fa-solid fa-sparkles"></i></div>
             <span class="card-number">المرحلة السابعة</span>
-            <h3 class="cover-title">أجمل أيام حياتي معكِ 💖</h3>
+            <h3 class="cover-title">من أعظم الخروجات مع بعض 🌟</h3>
             <p class="cover-tap-prompt">اضغطي هنا لاكتشاف الذكرى 👆</p>
           </div>
-          <!-- Revealed Content -->
           <div class="card-revealed">
-            <div class="photo-wrapper" onclick="openLightbox('images/7.jpg', 'آخر يوم ومن أجمل أيام حياتي لحد الآن ❤️')">
-              <img src="images/7.jpg" alt="الذكرى السابعة" loading="lazy">
+            <div class="photo-wrapper" onclick="openLightbox('images/7.jpg', 'من اعظم الخروجات برضو 🥰💖')">
+              <img src="images/7.jpg" alt="من أعظم الخروجات" loading="lazy">
               <span class="zoom-badge"><i class="fa-solid fa-magnifying-glass-plus"></i> كبّري الصورة</span>
             </div>
             <div class="memory-caption">
-              <h4>7 • من أجمل أيام حياتي</h4>
-              <p class="caption-text">اخر يوم ومن اجمل ايام حياتي لحد الان 💖🥰</p>
+              <h4>7 • من أعظم الخروجات في حياتي</h4>
+              <p class="caption-text">من اعظم الخروجات برضو.. نظرة عينيكِ بالدنيا وما فيها 🥰💖</p>
               <div class="card-poem">
-                "وكلُّ يومٍ معكِ هو عيدٌ جديد.. وقربكِ هو نعمةُ العمرِ المديد"
+                "معكِ كلُّ الطرقاتِ أمانٌ.. وكلُّ الأوقاتِ ربيعٌ لا ينتهي 🌸"
               </div>
             </div>
             <div class="step-nav-box multi-nav">
@@ -389,7 +376,77 @@
                 <i class="fa-solid fa-arrow-right"></i>
                 <span>السابقة</span>
               </button>
-              <button class="next-step-btn grand-next-btn" onclick="goToStep(8)">
+              <button class="next-step-btn" onclick="goToStep(8)">
+                <span>الذكرى الثامنة واحتفالنا 🎂</span>
+                <i class="fa-solid fa-arrow-left"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- STEP 8 (NEW: احتفال الـ 100 ألف متابع) -->
+      <div class="memory-step" id="step-8" data-step="8">
+        <div class="step-card">
+          <div class="card-cover" onclick="revealStep(8)">
+            <div class="cover-heart"><i class="fa-solid fa-cake-candles"></i></div>
+            <span class="card-number">المرحلة الثامنة</span>
+            <h3 class="cover-title">احتفال الـ 100 ألف متابع 🎂🎉</h3>
+            <p class="cover-tap-prompt">اضغطي هنا لاكتشاف الذكرى 👆</p>
+          </div>
+          <div class="card-revealed">
+            <div class="photo-wrapper" onclick="openLightbox('images/8.jpg', 'وهنا لما وصلت 100 الف متابع وانتي احتفلتي بيا 🎂🤍')">
+              <img src="images/8.jpg" alt="احتفال 100 ألف متابع" loading="lazy">
+              <span class="zoom-badge"><i class="fa-solid fa-magnifying-glass-plus"></i> كبّري الصورة</span>
+            </div>
+            <div class="memory-caption">
+              <h4>8 • احتفالكِ بيا وبنجاحنا</h4>
+              <p class="caption-text">وهنا لما وصلت 100 الف متابع وانتي احتفلتي بيا.. فرحتكِ دي كانت أكبر إنجاز في عمري 🤍🎉</p>
+              <div class="card-poem">
+                "أنتِ سندي وأولُ من آمنَ بي.. ونجاحي لا يكتمل نوره إلا بابتسامتكِ 🌟"
+              </div>
+            </div>
+            <div class="step-nav-box multi-nav">
+              <button class="prev-step-btn" onclick="goToStep(7)">
+                <i class="fa-solid fa-arrow-right"></i>
+                <span>السابقة</span>
+              </button>
+              <button class="next-step-btn" onclick="goToStep(9)">
+                <span>الذكرى التاسعة يا قمري 💖</span>
+                <i class="fa-solid fa-arrow-left"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- STEP 9 (آخر يوم ومن أجمل أيام حياتي) -->
+      <div class="memory-step" id="step-9" data-step="9">
+        <div class="step-card">
+          <div class="card-cover" onclick="revealStep(9)">
+            <div class="cover-heart"><i class="fa-solid fa-crown"></i></div>
+            <span class="card-number">المرحلة التاسعة</span>
+            <h3 class="cover-title">أجمل أيام حياتي معكِ 💖</h3>
+            <p class="cover-tap-prompt">اضغطي هنا لاكتشاف الذكرى 👆</p>
+          </div>
+          <div class="card-revealed">
+            <div class="photo-wrapper" onclick="openLightbox('images/9.jpg', 'آخر يوم ومن أجمل أيام حياتي لحد الآن ❤️')">
+              <img src="images/9.jpg" alt="الذكرى التاسعة" loading="lazy">
+              <span class="zoom-badge"><i class="fa-solid fa-magnifying-glass-plus"></i> كبّري الصورة</span>
+            </div>
+            <div class="memory-caption">
+              <h4>9 • من أجمل أيام حياتي</h4>
+              <p class="caption-text">اخر يوم ومن اجمل ايام حياتي لحد الان 💖🥰</p>
+              <div class="card-poem">
+                "وكلُّ يومٍ معكِ هو عيدٌ جديد.. وقربكِ هو نعمةُ العمرِ المديد"
+              </div>
+            </div>
+            <div class="step-nav-box multi-nav">
+              <button class="prev-step-btn" onclick="goToStep(8)">
+                <i class="fa-solid fa-arrow-right"></i>
+                <span>السابقة</span>
+              </button>
+              <button class="next-step-btn grand-next-btn" onclick="goToStep(10)">
                 <span>المفاجأة الكبرى والسر الأخير 💍👑</span>
                 <i class="fa-solid fa-ring"></i>
               </button>
@@ -398,17 +455,15 @@
         </div>
       </div>
 
-      <!-- STEP 8: THE GRAND CLIMAX & PROPOSAL -->
-      <div class="memory-step" id="step-8" data-step="8">
+      <!-- STEP 10: THE GRAND CLIMAX & PROPOSAL -->
+      <div class="memory-step" id="step-10" data-step="10">
         <div class="step-card grand-card">
-          <!-- Sealed Cover -->
-          <div class="card-cover grand-cover" onclick="revealStep(8)">
+          <div class="card-cover grand-cover" onclick="revealStep(10)">
             <div class="grand-crown"><i class="fa-solid fa-ring"></i></div>
-            <span class="card-number gold">المرحلة الثامنة والسر الأبدي 👑</span>
+            <span class="card-number gold">المرحلة العاشرة والسر الأبدي 👑</span>
             <h3 class="cover-title">رسالة عمري ووعدي لكي 💍</h3>
             <p class="cover-tap-prompt pulse-glow">اضغطي هنا يا روح قلبي 💖</p>
           </div>
-          <!-- Revealed Content -->
           <div class="card-revealed grand-revealed">
             <div class="ring-animation-box">
               <div class="sparkling-ring">💍</div>
@@ -450,7 +505,7 @@
               </div>
 
               <div class="step-nav-box" style="margin-top: 25px;">
-                <button class="prev-step-btn" onclick="goToStep(7)">
+                <button class="prev-step-btn" onclick="goToStep(9)">
                   <i class="fa-solid fa-arrow-right"></i>
                   <span>الرجوع للذكريات السابقة 💖</span>
                 </button>
