@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+  <title>لبسبوستي وحبيبة قلبي 💖</title>
+  
+  <!-- Romantic Web App Meta -->
+  <meta name="theme-color" content="#f472b6">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  
+  <!-- Google Fonts: Marhey, Cairo & Amiri -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&family=Marhey:wght@400;600;700&family=Amiri:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+  
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  
+  <!-- Canvas Confetti -->
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Background Music: Bahaa Sultan - Ana Mn Gherak -->
+  <audio id="bgSong" src="music.mp3" preload="auto" loop></audio>
+
+  <!-- Floating Heart Particle Canvas -->
+  <canvas id="heartCanvas"></canvas>
+
+  <!-- Background Music Control -->
+  <div class="audio-control" id="audioBtn" title="تشغيل / إيقاف الأغنية">
+    <i class="fa-solid fa-music"></i>
+    <span class="music-wave">
+      <span></span><span></span><span></span>
+    </span>
+  </div>
+
+  <!-- ==================== STAGE 1: THE PINK LOVE BAR ==================== -->
+  <section id="stage-bar" class="stage active">
+    <div class="glass-card pink-glow text-center">
+      <div class="heart-pulse-icon">
+        <i class="fa-solid fa-heart"></i>
+      </div>
+      <h1 class="romantic-title">سرّ قلبي لبسبوستي 💖</h1>
+      <p class="subtitle">اضغطي باستمرار على شريط الحب لفتح البوابة السرية لقلبي ✨</p>
+
+      <div class="hold-instruction">
+        <span>👇 اضغطي مطولاً هنا ولا ترفعي يدك 👇</span>
+      </div>
+
+      <!-- Interactive Press-and-Hold Bar -->
+      <div class="love-bar-container" id="loveBarContainer">
+        <div class="love-bar-fill" id="loveBarFill"></div>
+        <div class="love-bar-content">
+          <span class="bar-heart"><i class="fa-solid fa-heart-pulse"></i></span>
+          <span class="bar-text" id="barText">0%</span>
+        </div>
+        <div class="love-bar-glow"></div>
+      </div>
+
+      <div class="love-hint-message" id="barStatusMessage">
+        الحب يبدأ بلمسة منكِ 💕
+      </div>
+
+      <div class="tap-fallback">
+        (إذا كان صعباً الضغط المطول، يمكنكِ النقر المتتالي لملء الشريط 🌸)
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ==================== STAGE 2: PASSWORD LOCK SCREEN ==================== -->
+  <section id="stage-lock" class="stage">
+    <div class="glass-card pink-glow text-center">
+      <div class="lock-icon-wrap">
+        <i class="fa-solid fa-lock" id="lockIcon"></i>
+      </div>
+      <h2 class="romantic-title">بوابة الذكريات 💌</h2>
+      <p class="subtitle">في رقم لا ينسى بيننا.. هو بداية كل شيء جميل</p>
+
+      <!-- Hint Box -->
+      <div class="hint-badge">
+        <i class="fa-solid fa-lightbulb"></i>
+        <span>تلميح: أول يوم اتكلمنا فيه 🕊️</span>
+      </div>
+
+      <!-- Password Input -->
+      <div class="password-form" id="passForm">
+        <div class="input-wrap">
+          <i class="fa-solid fa-key input-icon"></i>
+          <input type="text" id="passwordInput" inputmode="numeric" placeholder="اكتبي كلمة السر هنا..." autocomplete="off">
+        </div>
+        <button id="unlockBtn" class="romantic-btn">
+          <span>افتحي قلبي</span>
+          <i class="fa-solid fa-unlock-keyhole"></i>
+        </button>
+      </div>
+
+      <div class="error-msg" id="errorMsg">
+        ركزي يا بسبوسة قلبي.. فكري في التاريخ الي جمعنا 🥺💕
+      </div>
+
+      <!-- Cute Poetry Card -->
+      <div class="mini-poem-card">
+        <p class="poem-text">"أنتِ البدايةُ في فؤادي والختامُ.. وبكِ استقامَ النبضُ وهدأ الأنامُ"</p>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ==================== STAGE 3: STEP-BY-STEP MEMORIES JOURNEY ==================== -->
+  <section id="stage-gallery" class="stage">
+    
+    <!-- Top Progress Indicator -->
+    <header class="journey-header text-center">
+      <div class="step-counter-badge">
+        <i class="fa-solid fa-heart"></i>
+        <span id="stepCounterText">المرحلة 1 من 8</span>
+      </div>
+      
+      <!-- Progress Hearts Bar -->
+      <div class="hearts-progress-bar" id="heartsProgressBar">
+        <span class="p-dot active" data-step="1">💖</span>
+        <span class="p-dot" data-step="2">🤍</span>
+        <span class="p-dot" data-step="3">🤍</span>
+        <span class="p-dot" data-step="4">🤍</span>
+        <span class="p-dot" data-step="5">🤍</span>
+        <span class="p-dot" data-step="6">🤍</span>
+        <span class="p-dot" data-step="7">🤍</span>
+        <span class="p-dot" data-step="8">💍</span>
+      </div>
+
+      <p class="journey-mini-poem" id="journeyMiniPoem">
+        "أحبكِ حباً لو يفضّ يسيره على الخلق، مات الخلق من شدّة الحبِّ"
+      </p>
+    </header>
+
+    <!-- Memories Steps Carousel/Container -->
+    <div class="memory-step-box">
+
+      <!-- STEP 1 -->
+      <div class="memory-step active" id="step-1" data-step="1">
+        <div class="step-card">
+          <!-- Sealed Cover -->
+          <div class="card-cover" onclick="revealStep(1)">
+            <div class="cover-heart"><i class="fa-solid fa-heart"></i></div>
+            <span class="card-number">المرحلة الأولى</span>
+            <h3 class="cover-title">أول لقاء في الحقيقة ✨</h3>
+            <p class="cover-tap-prompt">اضغطي هنا لاكتشاف الذكرى 👆</p>
+          </div>
+          <!-- Revealed Content -->
+          <div class="card-revealed">
+            <div class="photo-wrapper" onclick="openLightbox('images/1.jpg', 'أول وأجمل يوم في حياتي.. اليوم الي شوفتك فيه في الحقيقة ❤️')">
+              <img src="images/1.jpg" alt="الذكرى الأولى" loading="lazy">
+              <span class="zoom-badge"><i class="fa-solid fa-magnifying-glass-plus"></i> كبّري الصورة</span>
+            </div>
+            <div class="memory-caption">
+              <h4>1 • أول وأجمل يوم في حياتي</h4>
+              <p class="caption-text">اليوم الي شوفتك فيه في الحقيقهه ❤️</p>
+              <div class="card-poem">
+                "وكان اللقاءُ أماناً لقلبي.. كأنَّ الزمانَ ابتدأ من هنا 🌸"
+              </div>
+            </div>
+            <!-- Next Step Action -->
+            <div class="step-nav-box">
+              <button class="next-step-btn" onclick="goToStep(2)">
+                <span>نروح للذكرى التانية يا روحي؟ ✨</span>
+                <i class="fa-solid fa-arrow-left"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- STEP 2 -->
+      <div class="memory-step" id="step-2" data-step="2">
+        <div class="step-card">
+          <!-- Sealed Cover -->
+          <div class="card-cover" onclick="revealStep(2)">
+            <div class="cover-heart"><i class="fa-solid fa-water"></i></div>
+            <span class="card-number">المرحلة الثانية</span>
+            <h3 class="cover-title">يوم البحر ودفء إيدك 🌊</h3>
+            <p class="cover-tap-prompt">اضغطي هنا لاكتشاف الذكرى 👆</p>
+          </div>
+          <!-- Revealed Content -->
+          <div class="card-revealed">
+            <div class="photo-wrapper" onclick="openLightbox('images/2.jpg', 'تالت وأجمل يوم في حياتي على البحر 🌊')">
+              <img src="images/2.jpg" alt="الذكرى الثانية" loading="lazy">
+              <span class="zoom-badge"><i class="fa-solid fa-magnifying-glass-plus"></i> كبّري الصورة</span>
+            </div>
+            <div class="memory-caption">
+              <h4>2 • تالت وأجمل يوم في حياتي</h4>
+              <p class="caption-text">علي البحر وإيدي في إيدكك 🌊🤍</p>
+              <div class="card-poem">
+                "والبحرُ يشهدُ أنني بكِ هائمٌ.. وموجُ قلبي لا يهدأ إلا بقربكِ"
+              </div>
+            </div>
+            <div class="step-nav-box multi-nav">
+              <button class="prev-step-btn" onclick="goToStep(1)">
+                <i class="fa-solid fa-arrow-right"></i>
+                <span>السابقة</span>
+              </button>
+              <button class="next-step-btn" onclick="goToStep(3)">
+                <span>الذكرى التالتة يا قمري 🌸</span>
+                <i class="fa-solid fa-arrow-left"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- STEP 3 -->
+      <div class="memory-step" id="step-3" data-step="3">
+        <div class="step-card">
+          <!-- Sealed Cover -->
+          <div class="card-cover" onclick="revealStep(3)">
+            <div class="cover-heart"><i class="fa-solid fa-moon"></i></div>
+            <span class="card-number">المرحلة الثالثة</span>
+            <h3 class="cover-title">يوم الخمار والجمال 🌸</h3>
+            <p class="cover-tap-prompt">اضغطي هنا لاكتشاف الذكرى 👆</p>
+          </div>
+          <!-- Revealed Content -->
+          <div class="card-revealed">
+            <div class="photo-wrapper" onclick="openLightbox('images/3.jpg', 'يوم ما لبستي الخمار كان شكلك تحفة وقمر 🌸')">
+              <img src="images/3.jpg" alt="الذكرى الثالثة" loading="lazy">
+              <span class="zoom-badge"><i class="fa-solid fa-magnifying-glass-plus"></i> كبّري الصورة</span>
+            </div>
+            <div class="memory-caption">
+              <h4>3 • يوم الخمار ونور وجهك</h4>
+              <p class="caption-text">يوم ما لبستي الخمار كان شكلك تحفه وقمر ما شاء الله عليكِ 🌸🤍</p>
+              <div class="card-poem">
+                "يا فتنةَ النّور في خِمارِ الحياء.. زادكِ اللهُ بهاءً على بهاء ✨"
+              </div>
+            </div>
+            <div class="step-nav-box multi-nav">
+              <button class="prev-step-btn" onclick="goToStep(2)">
+                <i class="fa-solid fa-arrow-right"></i>
+                <span>السابقة</span>
+              </button>
+              <button class="next-step-btn" onclick="goToStep(4)">
+                <span>الذكرى الرابعة يا وردتي 🌹</span>
+                <i class="fa-solid fa-arrow-left"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- STEP 4 -->
+      <div class="memory-step" id="step-4" data-step="4">
+        <div class="step-card">
+          <!-- Sealed Cover -->
+          <div class="card-cover" onclick="revealStep(4)">
+            <div class="cover-heart"><i class="fa-solid fa-fan"></i></div>
+            <span class="card-number">المرحلة الرابعة</span>
+            <h3 class="cover-title">الوردة التي أزهرت في كتابك 🌹</h3>
+            <p class="cover-tap-prompt">اضغطي هنا لاكتشاف الذكرى 👆</p>
+          </div>
+          <!-- Revealed Content -->
+          <div class="card-revealed">
+            <div class="photo-wrapper" onclick="openLightbox('images/4.jpg', 'الوردة الي اتقطعت واتحطت في كتاب وبقت لوحة بسبب إيدكِ الحلوة 🌹')">
+              <img src="images/4.jpg" alt="الذكرى الرابعة" loading="lazy">
+              <span class="zoom-badge"><i class="fa-solid fa-magnifying-glass-plus"></i> كبّري الصورة</span>
+            </div>
+            <div class="memory-caption">
+              <h4>4 • وردة عمري وجمالك</h4>
+              <p class="caption-text">الورده الي اتقطعت واتحطت في كتاب وبقت لوحه بسبب ايدكك الحلوه 🌹🎨</p>
+              <div class="card-poem">
+                "كلُّ الوردِ يذبلُ يا أميرتي.. إلا ورداً لمستهُ يداكِ فصارَ لوحةً خُلدت"
+              </div>
+            </div>
+            <div class="step-nav-box multi-nav">
+              <button class="prev-step-btn" onclick="goToStep(3)">
+                <i class="fa-solid fa-arrow-right"></i>
+                <span>السابقة</span>
+              </button>
+              <button class="next-step-btn" onclick="goToStep(5)">
+                <span>الذكرى الخامسة والسينما 🎬</span>
+                <i class="fa-solid fa-arrow-left"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- STEP 5 -->
+      <div class="memory-step" id="step-5" data-step="5">
+        <div class="step-card">
+          <!-- Sealed Cover -->
+          <div class="card-cover" onclick="revealStep(5)">
+            <div class="cover-heart"><i class="fa-solid fa-film"></i></div>
+            <span class="card-number">المرحلة الخامسة</span>
+            <h3 class="cover-title">السينما وبناء أحلامنا 🎬</h3>
+            <p class="cover-tap-prompt">اضغطي هنا لاكتشاف الذكرى 👆</p>
+          </div>
+          <!-- Revealed Content -->
+          <div class="card-revealed">
+            <div class="photo-wrapper" onclick="openLightbox('images/5.jpg', 'السينما لما كنا قاعدين جمب بعض كنت بنبي احلامنا 🎬')">
+              <img src="images/5.jpg" alt="الذكرى الخامسة" loading="lazy">
+              <span class="zoom-badge"><i class="fa-solid fa-magnifying-glass-plus"></i> كبّري الصورة</span>
+            </div>
+            <div class="memory-caption">
+              <h4>5 • السينما وأجمل أحلامنا</h4>
+              <p class="caption-text">السينما لما كنا قاعدين جمب بعض كنت بنبي احلامنا سوا 🎬✨</p>
+              <div class="card-poem">
+                "بجواركِ تمضي الدقائقُ كأنها جنة.. وبكِ تُبنى كلُّ أماني الغد وتكتمل"
+              </div>
+            </div>
+            <div class="step-nav-box multi-nav">
+              <button class="prev-step-btn" onclick="goToStep(4)">
+                <i class="fa-solid fa-arrow-right"></i>
+                <span>السابقة</span>
+              </button>
+              <button class="next-step-btn" onclick="goToStep(6)">
+                <span>الذكرى السادسة وحرفك ✍️</span>
+                <i class="fa-solid fa-arrow-left"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- STEP 6 -->
+      <div class="memory-step" id="step-6" data-step="6">
+        <div class="step-card">
+          <!-- Sealed Cover -->
+          <div class="card-cover" onclick="revealStep(6)">
+            <div class="cover-heart"><i class="fa-solid fa-pen-nib"></i></div>
+            <span class="card-number">المرحلة السادسة</span>
+            <h3 class="cover-title">حرفك على بدلتي وقلبي ✍️</h3>
+            <p class="cover-tap-prompt">اضغطي هنا لاكتشاف الذكرى 👆</p>
+          </div>
+          <!-- Revealed Content -->
+          <div class="card-revealed">
+            <div class="photo-wrapper" onclick="openLightbox('images/6.jpg', 'لما رسمت حرفك على البدلة ✨')">
+              <img src="images/6.jpg" alt="الذكرى السادسة" loading="lazy">
+              <span class="zoom-badge"><i class="fa-solid fa-magnifying-glass-plus"></i> كبّري الصورة</span>
+            </div>
+            <div class="memory-caption">
+              <h4>6 • لما رسمت حرفك على البدلة</h4>
+              <p class="caption-text">حرفك الي محفور في قلبي وعلى البدلههه 🤍✨</p>
+              <div class="card-poem">
+                "رسمتُ حرفكِ فوق ثوبي معلناً.. أن الهوى في مهجتي عنوانُكِ"
+              </div>
+            </div>
+            <div class="step-nav-box multi-nav">
+              <button class="prev-step-btn" onclick="goToStep(5)">
+                <i class="fa-solid fa-arrow-right"></i>
+                <span>السابقة</span>
+              </button>
+              <button class="next-step-btn" onclick="goToStep(7)">
+                <span>الذكرى السابعة والأجمل 💖</span>
+                <i class="fa-solid fa-arrow-left"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- STEP 7 -->
+      <div class="memory-step" id="step-7" data-step="7">
+        <div class="step-card">
+          <!-- Sealed Cover -->
+          <div class="card-cover" onclick="revealStep(7)">
+            <div class="cover-heart"><i class="fa-solid fa-crown"></i></div>
+            <span class="card-number">المرحلة السابعة</span>
+            <h3 class="cover-title">أجمل أيام حياتي معكِ 💖</h3>
+            <p class="cover-tap-prompt">اضغطي هنا لاكتشاف الذكرى 👆</p>
+          </div>
+          <!-- Revealed Content -->
+          <div class="card-revealed">
+            <div class="photo-wrapper" onclick="openLightbox('images/7.jpg', 'آخر يوم ومن أجمل أيام حياتي لحد الآن ❤️')">
+              <img src="images/7.jpg" alt="الذكرى السابعة" loading="lazy">
+              <span class="zoom-badge"><i class="fa-solid fa-magnifying-glass-plus"></i> كبّري الصورة</span>
+            </div>
+            <div class="memory-caption">
+              <h4>7 • من أجمل أيام حياتي</h4>
+              <p class="caption-text">اخر يوم ومن اجمل ايام حياتي لحد الان 💖🥰</p>
+              <div class="card-poem">
+                "وكلُّ يومٍ معكِ هو عيدٌ جديد.. وقربكِ هو نعمةُ العمرِ المديد"
+              </div>
+            </div>
+            <div class="step-nav-box multi-nav">
+              <button class="prev-step-btn" onclick="goToStep(6)">
+                <i class="fa-solid fa-arrow-right"></i>
+                <span>السابقة</span>
+              </button>
+              <button class="next-step-btn grand-next-btn" onclick="goToStep(8)">
+                <span>المفاجأة الكبرى والسر الأخير 💍👑</span>
+                <i class="fa-solid fa-ring"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- STEP 8: THE GRAND CLIMAX & PROPOSAL -->
+      <div class="memory-step" id="step-8" data-step="8">
+        <div class="step-card grand-card">
+          <!-- Sealed Cover -->
+          <div class="card-cover grand-cover" onclick="revealStep(8)">
+            <div class="grand-crown"><i class="fa-solid fa-ring"></i></div>
+            <span class="card-number gold">المرحلة الثامنة والسر الأبدي 👑</span>
+            <h3 class="cover-title">رسالة عمري ووعدي لكي 💍</h3>
+            <p class="cover-tap-prompt pulse-glow">اضغطي هنا يا روح قلبي 💖</p>
+          </div>
+          <!-- Revealed Content -->
+          <div class="card-revealed grand-revealed">
+            <div class="ring-animation-box">
+              <div class="sparkling-ring">💍</div>
+              <div class="glowing-hearts-cluster">
+                <i class="fa-solid fa-heart h1"></i>
+                <i class="fa-solid fa-heart h2"></i>
+                <i class="fa-solid fa-heart h3"></i>
+              </div>
+            </div>
+
+            <div class="grand-message-box">
+              <h3 class="grand-heading">وعدي لكي يا أميرتي 👑</h3>
+              <div class="user-heart-message">
+                "وفي الاخير حابب اقولك بحبك من كل قلبي واني بجد كل يوم بتمني انك تكوني جمبي وطول العمر بحبك اوي يا بسبوستي ربنا يخليكي ليا واتجوزك يا ام عيالي"
+              </div>
+
+              <div class="final-poems">
+                <p class="poem-verse">"يا سكرَ الأيامِ والكونِ الفسيح.. يا من ببسمتها يطيبُ ويستريحُ"</p>
+                <p class="poem-verse">"أنتِ التي أودعتُ في عينيكِ قلبي، فصرتِ لي وطناً وعمراً ومستقراً"</p>
+              </div>
+
+              <!-- Interactive Proposal Question -->
+              <div class="proposal-action" id="proposalSection">
+                <p class="proposal-question">موافقة تكوني شريكة عمري وأم عيالي يا بسبوستي؟ 🥺💍</p>
+                <div class="proposal-buttons">
+                  <button class="yes-btn" onclick="celebrateLove(this)">
+                    <i class="fa-solid fa-heart"></i>
+                    <span>موافقة يا قلب ميزو وبموت فيك! 💕</span>
+                  </button>
+                  <button class="super-yes-btn" onclick="celebrateLove(this)">
+                    <i class="fa-solid fa-ring"></i>
+                    <span>طبعاً موافقة ومستنياك يا سندي 👰‍♀️</span>
+                  </button>
+                </div>
+              </div>
+
+              <div class="celebration-msg" id="celebrationMsg">
+                🎉 ربنا يجمعنا في الحلال قريباً يا أحلى بسبوسة في الكون كله! بحبككككك مووووت! 💖💍🎉
+              </div>
+
+              <div class="step-nav-box" style="margin-top: 25px;">
+                <button class="prev-step-btn" onclick="goToStep(7)">
+                  <i class="fa-solid fa-arrow-right"></i>
+                  <span>الرجوع للذكريات السابقة 💖</span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Footer -->
+    <footer class="romantic-footer text-center">
+      <div class="footer-hearts">💖 💕 🌸 💖</div>
+      <p class="footer-text">صُنع بكل نبضة حب خصيصاً لبسبوستي الغالية ✨</p>
+      <p class="footer-sub">معاً إلى الأبد إن شاء الله 💍</p>
+    </footer>
+
+  </section>
+
+  <!-- Fullscreen Photo Lightbox Modal -->
+  <div class="lightbox" id="lightboxModal" onclick="closeLightbox(event)">
+    <div class="lightbox-content">
+      <button class="close-lightbox" onclick="closeLightbox(event)"><i class="fa-solid fa-xmark"></i></button>
+      <img id="lightboxImg" src="" alt="صورة مكبرة">
+      <p id="lightboxCaption" class="lightbox-caption"></p>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
